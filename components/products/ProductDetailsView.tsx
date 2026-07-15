@@ -13,8 +13,9 @@ interface ProductDetailsViewProps {
 
 export function ProductDetailsView({ id }: ProductDetailsViewProps) {
   const product = getProductById(id);
-
-  if (!product) {
+  const base = (process.env.NEXT_PUBLIC_BASE_PATH ?? '').replace(/\/$/, '');
+  const prefix = (p: string) => `${base}${p.startsWith('/') ? p : '/' + p}`;
+n  if (!product) {
     return (
       <div className="min-h-screen bg-white dark:bg-black flex items-center justify-center px-4">
         <div className="text-center space-y-4">
@@ -73,7 +74,7 @@ export function ProductDetailsView({ id }: ProductDetailsViewProps) {
           <div className="w-full h-64 rounded-xl overflow-hidden relative bg-gradient-to-br from-emerald-100 to-green-100 dark:from-emerald-900/30 dark:to-green-900/30">
             {product.image ? (
               <Image
-                src={product.image}
+                src={prefix(product.image)}
                 alt={product.imageAlt ?? product.name}
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
@@ -144,7 +145,7 @@ export function ProductDetailsView({ id }: ProductDetailsViewProps) {
             <div className="flex items-center gap-4">
               {prevProduct.image ? (
                 <div className="w-20 h-20 relative flex-shrink-0 rounded-md overflow-hidden">
-                  <Image src={prevProduct.image} alt={prevProduct.imageAlt ?? prevProduct.name} fill className="object-contain" />
+                  <Image src={prefix(prevProduct.image)} alt={prevProduct.imageAlt ?? prevProduct.name} fill className="object-contain" />
                 </div>
               ) : (
                 <div className="text-5xl">{prevProduct.mainBenefits[0]?.icon || '🌾'}</div>
@@ -173,7 +174,7 @@ export function ProductDetailsView({ id }: ProductDetailsViewProps) {
               </div>
               {nextProduct.image ? (
                 <div className="w-20 h-20 relative flex-shrink-0 rounded-md overflow-hidden">
-                  <Image src={nextProduct.image} alt={nextProduct.imageAlt ?? nextProduct.name} fill className="object-contain" />
+                  <Image src={prefix(nextProduct.image)} alt={nextProduct.imageAlt ?? nextProduct.name} fill className="object-contain" />
                 </div>
               ) : (
                 <div className="text-5xl">{nextProduct.mainBenefits[0]?.icon || '🌾'}</div>
