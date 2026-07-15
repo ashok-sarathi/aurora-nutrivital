@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { contactConfig } from '@/config/contact';
+import { Logo } from '@/components/Logo';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,14 +12,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-emerald-600 to-green-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">A</span>
-              </div>
-              <h3 className="font-bold text-lg text-zinc-900 dark:text-white">
-                Aurora<span className="text-emerald-600">Nutrivital</span>
-              </h3>
-            </div>
+            <Logo size="lg" />
             <p className="text-sm text-zinc-600 dark:text-zinc-400">
               Ancient Nutrition for Modern Life. Pure, natural, and nutritious food products.
             </p>

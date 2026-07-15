@@ -2,62 +2,14 @@ import { Product } from '@/types/product';
 
 export const products: Product[] = [
   {
-    id: 'premium-33-ingredients',
-    slug: 'premium-33-ingredients-health-mix',
-    name: 'Premium 33 Ingredients Health Mix',
-    category: 'family-health',
-    categoryLabel: 'Family Nutrition',
-    tagline: 'Complete daily nutrition from 33 natural ingredients',
-    description: 'A complete daily nutrition mix made from 33 carefully selected natural ingredients including millets, grains, pulses, legumes, nuts, seeds, and functional spices. Perfect for the entire family.',
-    mainBenefits: [
-      { name: 'High Protein', icon: '💪' },
-      { name: 'High Fiber', icon: '🌾' },
-      { name: 'Rich in Vitamins', icon: '✨' },
-      { name: 'Rich in Minerals', icon: '⛰️' },
-      { name: 'Boosts Immunity', icon: '🛡️' },
-      { name: 'Supports Digestion', icon: '🔄' },
-      { name: 'Provides Energy', icon: '⚡' },
-      { name: 'Strengthens Bones', icon: '🦴' },
-    ],
-    features: [
-      '100% Natural',
-      'No Added Sugar',
-      'No Added Salt',
-      'No Preservatives',
-      'Made from 33 Ingredients',
-    ],
-    ingredients: [
-      {
-        category: 'Millets & Grains',
-        items: ['Pearl Millet (Kambu)', 'Finger Millet (Ragi)', 'Foxtail Millet (Thinai)', 'Little Millet (Samai)', 'Kodo Millet (Varagu)', 'Barnyard Millet', 'White Sorghum', 'Red Sorghum', 'Maize', 'Barley', 'Black Kavuni Rice', 'Red Rice', 'Samba Wheat'],
-      },
-      {
-        category: 'Pulses & Legumes',
-        items: ['Green Gram', 'Yellow Moong Dal', 'Black Gram', 'Soybean', 'Horse Gram', 'Red Cowpea', 'Black Chickpeas', 'Bengal Gram', 'Toor Dal'],
-      },
-      {
-        category: 'Nuts & Seeds',
-        items: ['Almond', 'Cashew', 'White Sesame', 'Black Sesame', 'Flax Seeds', 'Sabja Seeds', 'Pumpkin Seeds', 'Makhana (Fox Nuts)'],
-      },
-      {
-        category: 'Functional Ingredients',
-        items: ['Dry Ginger', 'Cinnamon', 'Cardamom'],
-      },
-    ],
-    usage: {
-      mixWith: ['Hot Water', 'Hot Milk'],
-      instructions: ['Mix with hot water or hot milk', 'Boil for approximately 2 minutes', 'Sweetener can be added if required'],
-    },
-    targetAudience: ['Children', 'Adults', 'Senior Citizens', 'Entire Family'],
-    nutritionalHighlights: ['High Protein', 'High Fiber', 'Rich in Vitamins', 'Rich in Minerals', 'Supports Overall Health'],
-  },
-  {
     id: 'family-health-mix',
     slug: 'family-health-mix',
     name: 'Family Health Mix',
     category: 'family-health',
     categoryLabel: 'Family Nutrition',
     tagline: 'Complete nutrition for the whole family',
+    image: '/products/Premium 33 Ingredients Health Mix.jpeg',
+    imageAlt: 'Family Health Mix product image',
     description: 'A balanced nutritional blend designed to support the health and wellness of the entire family. Contains essential vitamins, minerals, and proteins from natural sources.',
     mainBenefits: [
       { name: 'Complete Daily Nutrition', icon: '🥗' },
@@ -98,6 +50,8 @@ export const products: Product[] = [
     category: 'kids-growth',
     categoryLabel: 'Kids Nutrition',
     tagline: 'Natural nutrition for healthy child development',
+    image: '/products/Kids Growth Mix.jpeg',
+    imageAlt: 'Kids Growth Mix product image',
     description: 'A specially formulated mix for children aged 3+ years, designed to support healthy growth, brain development, and strong immunity. Contains essential nutrients for child development.',
     mainBenefits: [
       { name: 'Healthy Growth', icon: '📈' },
@@ -159,6 +113,8 @@ export const products: Product[] = [
     category: 'weight-management',
     categoryLabel: 'Weight Management',
     tagline: 'Natural support for healthy weight management',
+    image: '/products/Weight Management Mix.jpeg',
+    imageAlt: 'Weight Management Mix product image',
     description: 'A low-calorie, high-fiber mix designed to support healthy weight management. Rich in plant protein and functional ingredients that keep you full longer while providing complete nutrition.',
     mainBenefits: [
       { name: 'High Fiber', icon: '🌾' },
@@ -215,6 +171,8 @@ export const products: Product[] = [
     category: 'weight-gain',
     categoryLabel: 'Weight Gain',
     tagline: 'Natural nutrition for healthy weight gain',
+    image: '/products/Weight Gain Mix.jpeg',
+    imageAlt: 'Weight Gain Mix product image',
     description: 'A high-protein, high-calorie mix designed to support healthy weight gain and muscle building. Contains nutrient-dense ingredients with natural dates powder for sustained energy.',
     mainBenefits: [
       { name: 'Healthy Weight Gain', icon: '📈' },
@@ -275,6 +233,8 @@ export const products: Product[] = [
     category: 'diabetic-friendly',
     categoryLabel: 'Diabetic Care',
     tagline: 'Carefully formulated for blood sugar support',
+    image: '/products/Diabetic Friendly Health Mix.jpeg',
+    imageAlt: 'Diabetic Friendly Health Mix product image',
     description: 'A specially formulated mix for diabetic individuals and those conscious of sugar intake. Low glycemic index, high fiber, and rich in minerals that support blood sugar balance.',
     mainBenefits: [
       { name: 'Low Glycemic Index', icon: '📊' },

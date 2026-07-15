@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { Product } from '@/types/product';
 import { ArrowRight } from 'lucide-react';
@@ -12,9 +13,19 @@ export function ProductCard({ product }: ProductCardProps) {
       <div className="group h-full bg-white dark:bg-zinc-800 rounded-xl shadow-sm hover:shadow-lg dark:shadow-zinc-900/30 dark:hover:shadow-emerald-500/20 transition-all duration-300 overflow-hidden hover:border-emerald-200 dark:hover:border-emerald-900 border border-zinc-200 dark:border-zinc-700">
         {/* Product Image / Placeholder */}
         <div className="relative h-48 bg-gradient-to-br from-emerald-100 to-green-100 dark:from-emerald-900/30 dark:to-green-900/30 overflow-hidden flex items-center justify-center">
-          <div className="text-5xl opacity-30 group-hover:scale-110 transition-transform duration-300">
-            {product.mainBenefits[0]?.icon || '🌾'}
-          </div>
+          {product.image ? (
+            <Image
+              src={product.image}
+              alt={product.imageAlt ?? product.name}
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-contain"
+            />
+          ) : (
+            <div className="text-5xl opacity-30 group-hover:scale-110 transition-transform duration-300">
+              {product.mainBenefits[0]?.icon || '🌾'}
+            </div>
+          )}
         </div>
 
         {/* Product Info */}

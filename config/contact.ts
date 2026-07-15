@@ -3,7 +3,7 @@ import { ContactConfig } from '@/types/product';
 export const contactConfig: ContactConfig = {
   whatsappNumber: '+917358414163',
   whatsappNumberFormatted: '+91 7358 414 163',
-  email: 'contact@auroranutrivital.com',
+  email: 'auroranutrivital68@gmail.com',
   phone: '+91-7358-414163',
 };
 

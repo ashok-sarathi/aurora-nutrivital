@@ -1,6 +1,7 @@
 import { HeroSection } from '@/components/sections/HeroSection';
 import { BenefitsSection } from '@/components/sections/BenefitsSection';
 import { FeatureShowcase } from '@/components/sections/FeatureShowcase';
+import { ProductsShowcase } from '@/components/sections/ProductsShowcase';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
@@ -10,6 +11,7 @@ export default function Home() {
       <HeroSection />
       <BenefitsSection />
       <FeatureShowcase />
+      <ProductsShowcase />
 
       {/* CTA Section */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-emerald-600 dark:bg-emerald-900">

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { products, getProductById, productCategories } from '@/data/products';
 import { ProductDetails } from '@/components/products/ProductDetails';
 import { getWhatsAppInquiryLink } from '@/config/contact';
@@ -68,13 +69,25 @@ export function ProductDetailsView({ id }: ProductDetailsViewProps) {
 
         {/* Sidebar - Quick Actions */}
         <div className="lg:col-span-1 space-y-6">
-          {/* Product Image Placeholder */}
-          <div className="w-full h-64 bg-gradient-to-br from-emerald-100 to-green-100 dark:from-emerald-900/30 dark:to-green-900/30 rounded-xl flex items-center justify-center sticky top-24">
-            <div className="text-6xl">{product.mainBenefits[0]?.icon || '🌾'}</div>
+          {/* Product Image */}
+          <div className="w-full h-64 rounded-xl overflow-hidden relative bg-gradient-to-br from-emerald-100 to-green-100 dark:from-emerald-900/30 dark:to-green-900/30">
+            {product.image ? (
+              <Image
+                src={product.image}
+                alt={product.imageAlt ?? product.name}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-contain"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center">
+                <div className="text-6xl">{product.mainBenefits[0]?.icon || '🌾'}</div>
+              </div>
+            )}
           </div>
 
           {/* CTA Buttons */}
-          <div className="space-y-3 sticky top-96">
+          <div className="space-y-3">
             <a
               href={whatsappLink}
               target="_blank"
@@ -129,7 +142,13 @@ export function ProductDetailsView({ id }: ProductDetailsViewProps) {
             className="group p-6 rounded-xl bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-emerald-400 dark:hover:border-emerald-500 hover:shadow-lg transition-all"
           >
             <div className="flex items-center gap-4">
-              <div className="text-5xl">{prevProduct.mainBenefits[0]?.icon || '🌾'}</div>
+              {prevProduct.image ? (
+                <div className="w-20 h-20 relative flex-shrink-0 rounded-md overflow-hidden">
+                  <Image src={prevProduct.image} alt={prevProduct.imageAlt ?? prevProduct.name} fill className="object-contain" />
+                </div>
+              ) : (
+                <div className="text-5xl">{prevProduct.mainBenefits[0]?.icon || '🌾'}</div>
+              )}
               <div className="flex-1 min-w-0">
                 <p className="text-xs font-semibold text-zinc-600 dark:text-zinc-400 uppercase mb-1">Previous</p>
                 <h4 className="font-semibold text-zinc-900 dark:text-white truncate group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
@@ -152,7 +171,13 @@ export function ProductDetailsView({ id }: ProductDetailsViewProps) {
                   {nextProduct.name}
                 </h4>
               </div>
-              <div className="text-5xl">{nextProduct.mainBenefits[0]?.icon || '🌾'}</div>
+              {nextProduct.image ? (
+                <div className="w-20 h-20 relative flex-shrink-0 rounded-md overflow-hidden">
+                  <Image src={nextProduct.image} alt={nextProduct.imageAlt ?? nextProduct.name} fill className="object-contain" />
+                </div>
+              ) : (
+                <div className="text-5xl">{nextProduct.mainBenefits[0]?.icon || '🌾'}</div>
+              )}
               <ChevronRight className="w-5 h-5 text-zinc-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors flex-shrink-0" />
             </div>
           </Link>
