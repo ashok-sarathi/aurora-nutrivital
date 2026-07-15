@@ -10,9 +10,6 @@ const nextConfig: NextConfig = {
   },
   basePath: isProd ? "/aurora-nutrivital" : "",
   assetPrefix: isProd ? "/aurora-nutrivital/" : "",
-  env: {
-    NEXT_PUBLIC_BASE_PATH: isProd ? "/aurora-nutrivital" : "",
-  },
 };
 
 export default nextConfig;
