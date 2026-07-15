@@ -8,7 +8,7 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   return (
-    <Link href={`/products/${product.slug}`}>
+    <Link href={`/products?id=${product.id}`}>
       <div className="group h-full bg-white dark:bg-zinc-800 rounded-xl shadow-sm hover:shadow-lg dark:shadow-zinc-900/30 dark:hover:shadow-emerald-500/20 transition-all duration-300 overflow-hidden hover:border-emerald-200 dark:hover:border-emerald-900 border border-zinc-200 dark:border-zinc-700">
         {/* Product Image / Placeholder */}
         <div className="relative h-48 bg-gradient-to-br from-emerald-100 to-green-100 dark:from-emerald-900/30 dark:to-green-900/30 overflow-hidden flex items-center justify-center">

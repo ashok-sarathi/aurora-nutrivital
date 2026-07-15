@@ -1,12 +1,12 @@
-import { Suspense } from 'react';
+'use client';
+
+import { Suspense, useMemo } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { products, getProductsByCategory, productCategories } from '@/data/products';
 import { ProductGrid } from '@/components/products/ProductGrid';
 import { CategoryFilter } from '@/components/ui/CategoryFilter';
 import { SortDropdown } from '@/components/ui/SortDropdown';
-
-interface ProductsPageProps {
-  searchParams: Promise<{ category?: string; sort?: string }>;
-}
+import { ProductDetailsView } from '@/components/products/ProductDetailsView';
 
 function sortProducts(
   productsToSort: typeof products,
@@ -25,21 +25,27 @@ function sortProducts(
   }
 }
 
-export const metadata = {
-  title: 'Products | Aurora Nutrivital',
-  description: 'Browse our complete range of natural health mixes for family wellness.',
-};
+function ProductsContent() {
+  const searchParams = useSearchParams();
+  const category = searchParams.get('category') || undefined;
+  const sort = searchParams.get('sort') || undefined;
+  const id = searchParams.get('id') || undefined;
 
-async function ProductsContent({ params }: { params: Promise<{ category?: string; sort?: string }> }) {
-  const { category, sort } = await params;
+  // Compute products listing
+  const productsToDisplay = useMemo(() => {
+    let result = category
+      ? getProductsByCategory(category)
+      : products;
 
-  let productsToDisplay = category
-    ? getProductsByCategory(category)
-    : products;
-
-  productsToDisplay = sortProducts(productsToDisplay, sort);
+    return sortProducts(result, sort);
+  }, [category, sort]);
 
   const selectedCategory = productCategories.find((c) => c.id === category);
+
+  // Show product detail view if id parameter is present
+  if (id) {
+    return <ProductDetailsView id={id} />;
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
@@ -100,11 +106,11 @@ async function ProductsContent({ params }: { params: Promise<{ category?: string
   );
 }
 
-export default async function ProductsPage({ searchParams }: ProductsPageProps) {
+export default function ProductsPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-black">
-      <Suspense fallback={<div className="p-8">Loading products...</div>}>
-        <ProductsContent params={searchParams} />
+      <Suspense fallback={<div className="p-8">Loading...</div>}>
+        <ProductsContent />
       </Suspense>
     </div>
   );
