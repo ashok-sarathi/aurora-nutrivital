@@ -1,4 +1,5 @@
 import { Product } from '@/types/product';
+import { publicPath } from '@/lib/public-path';
 
 export const products: Product[] = [
   {
@@ -8,7 +9,7 @@ export const products: Product[] = [
     category: 'family-health',
     categoryLabel: 'Family Nutrition',
     tagline: 'Complete nutrition for the whole family',
-    image: '/aurora-nutrivital/premium-33-ingredients-health-mix.jpeg',
+    image: publicPath('/premium-33-ingredients-health-mix.jpeg'),
     imageAlt: 'Family Health Mix product image',
     description: 'A balanced nutritional blend designed to support the health and wellness of the entire family. Contains essential vitamins, minerals, and proteins from natural sources.',
     mainBenefits: [
@@ -50,7 +51,7 @@ export const products: Product[] = [
     category: 'kids-growth',
     categoryLabel: 'Kids Nutrition',
     tagline: 'Natural nutrition for healthy child development',
-    image: '/aurora-nutrivital/kids-growth-mix.jpeg',
+    image: publicPath('/kids-growth-mix.jpeg'),
     imageAlt: 'Kids Growth Mix product image',
     description: 'A specially formulated mix for children aged 3+ years, designed to support healthy growth, brain development, and strong immunity. Contains essential nutrients for child development.',
     mainBenefits: [
@@ -113,7 +114,7 @@ export const products: Product[] = [
     category: 'weight-management',
     categoryLabel: 'Weight Management',
     tagline: 'Natural support for healthy weight management',
-    image: '/aurora-nutrivital/weight-management-mix.jpeg',
+    image: publicPath('/weight-management-mix.jpeg'),
     imageAlt: 'Weight Management Mix product image',
     description: 'A low-calorie, high-fiber mix designed to support healthy weight management. Rich in plant protein and functional ingredients that keep you full longer while providing complete nutrition.',
     mainBenefits: [
@@ -171,7 +172,7 @@ export const products: Product[] = [
     category: 'weight-gain',
     categoryLabel: 'Weight Gain',
     tagline: 'Natural nutrition for healthy weight gain',
-    image: '/aurora-nutrivital/weight-gain-mix.jpeg',
+    image: publicPath('/weight-gain-mix.jpeg'),
     imageAlt: 'Weight Gain Mix product image',
     description: 'A high-protein, high-calorie mix designed to support healthy weight gain and muscle building. Contains nutrient-dense ingredients with natural dates powder for sustained energy.',
     mainBenefits: [
@@ -233,7 +234,7 @@ export const products: Product[] = [
     category: 'diabetic-friendly',
     categoryLabel: 'Diabetic Care',
     tagline: 'Carefully formulated for blood sugar support',
-    image: '/aurora-nutrivital/diabetic-friendly-health-mix.jpeg',
+    image: publicPath('/diabetic-friendly-health-mix.jpeg'),
     imageAlt: 'Diabetic Friendly Health Mix product image',
     description: 'A specially formulated mix for diabetic individuals and those conscious of sugar intake. Low glycemic index, high fiber, and rich in minerals that support blood sugar balance.',
     mainBenefits: [

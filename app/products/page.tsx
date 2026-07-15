@@ -1,6 +1,7 @@
 'use client';
 
 import { Suspense, useMemo } from 'react';
+import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { products, getProductsByCategory, productCategories } from '@/data/products';
 import { ProductGrid } from '@/components/products/ProductGrid';
@@ -95,12 +96,12 @@ function ProductsContent() {
           additives. Each mix is carefully formulated to provide complete nutrition for different
           life stages and wellness goals.
         </p>
-        <a
+        <Link
           href="/contact"
           className="inline-flex items-center text-emerald-600 dark:text-emerald-400 font-medium hover:underline"
         >
           Contact us for personalized recommendations →
-        </a>
+        </Link>
       </div>
     </div>
   );

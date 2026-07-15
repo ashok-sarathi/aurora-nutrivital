@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { publicPath } from '@/lib/public-path';
 
 interface LogoProps {
   size?: 'sm' | 'md' | 'lg';
@@ -21,7 +22,7 @@ export function Logo({ size = 'md', showText = false }: LogoProps) {
     <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
       <div className="flex-shrink-0">
         <Image
-          src="/logo.png"
+          src={publicPath('/logo.png')}
           alt="Aurora Nutrivital Logo"
           width={size_px.width}
           height={size_px.height}
